@@ -10,11 +10,9 @@ date <- dmy(rawdata$Date)
 chg_dates <- mutate (rawdata, Date = date)
 
 ## Filter data to only those on 1 Feb 2007 & 2 Feb 2007
-
 reqd_dates <- filter (chg_dates, Date == dmy("01/02/2007") | Date == dmy("02/02/2007"))
 
 ## Change characters as numeric variables
-
 reqd_data <- reqd_dates %>% mutate(
                     Global_active_power = as.numeric(Global_active_power),
                     Global_reactive_power = as.numeric(Global_reactive_power),
@@ -35,5 +33,3 @@ hist(reqd_data$Global_active_power, col="red", main = "Global Active Power", xla
 dev.copy(png, file = "plot1.png", width = 480, height = 480) 
 
 dev.off()
-
-message ("The histogram has now been saved in a file called 'plot1.png' in the working directory")

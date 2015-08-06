@@ -10,11 +10,9 @@ date <- dmy(rawdata$Date)
 chg_dates <- mutate (rawdata, Date = date)
 
 ## Filter data to only those on 1 Feb 2007 & 2 Feb 2007
-
 reqd_dates <- filter (chg_dates, Date == dmy("01/02/2007") | Date == dmy("02/02/2007"))
 
 ## Change characters as numeric variables
-
 reqd_data <- reqd_dates %>% mutate(
                     Global_active_power = as.numeric(Global_active_power),
                     Global_reactive_power = as.numeric(Global_reactive_power),
@@ -27,7 +25,6 @@ reqd_data <- reqd_dates %>% mutate(
 ## ----- End of common section across all of the R codes ----- ##
 
 ## Combine date & time variables ##
-
 time <- gsub(":","-",reqd_data$Time)
 date_time <- reqd_data %>% mutate(date_time = paste(Date, time, sep = "-"),
                                   ymdhms = ymd_hms(date_time))
@@ -42,5 +39,3 @@ with(date_time, plot(ymdhms, Global_active_power, type = "l", xlab = "",
 dev.copy(png, file = "plot2.png", width = 480, height = 480) 
 
 dev.off()
-
-message ("The graph has now been saved in a file called 'plot2.png' in the working directory")

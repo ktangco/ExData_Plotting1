@@ -57,31 +57,3 @@ with(date_time, plot(ymdhms, Voltage, type = "l", xlab = "datetime"))
 with(date_time, plot(ymdhms, Global_reactive_power, type = "l", xlab = "datetime"))
 
 dev.off()
-
-## Reproduce graph on screen device ##
-
-par(mfcol = c(2,2), mar = c(4,4,2,1))
-
-with(date_time, plot(ymdhms, Global_active_power, type = "l", xlab = "",
-                     ylab = "Global Active Power"))
-
-with(date_time, { 
-        plot(ymdhms, Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "") 
-        lines(ymdhms, Sub_metering_2, type = "l", col = "red", xlab = "", ylab = "")
-        lines(ymdhms, Sub_metering_3, type = "l", col = "blue", xlab = "", ylab = "")
-        title(xlab = "", ylab = "Energy sub metering")
-        legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-               col = c("black", "red", "blue"), lty = 1, bty = "n")
-})
-
-with(date_time, plot(ymdhms, Voltage, type = "l", xlab = "datetime"))
-
-with(date_time, plot(ymdhms, Global_reactive_power, type = "l", xlab = "datetime"))
-
-
-## Reset plot window to default settings ##
-par(mfcol = c(1,1), mar = c(5.1,4.1,4.1,2.1))
-
-
-message ("The graphs have been saved in a file called 'plot4.png' in the working
-        directory.  They have also been reproduced on the screen.")

@@ -1,4 +1,4 @@
-### Points to note when running the plotx.R codes ###
+### Points to note when running the plotn.R codes (not required for assignment, just FYI) ###
 
 1.  Assumes that your computer has enough memory to store the original data set and load/manipulate in R.
 
